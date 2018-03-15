@@ -19,9 +19,11 @@
             perspective: 1000px;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
+    margin-top:7%;
     margin-right: 30%;
     margin-left: 30%;
-    margin-bottom: 19.3em;
+    /* margin-bottom: 12.2em; */
+    z-index: 5;
 }
 .panel.is--open {
   -webkit-transform: rotateX(0deg);
