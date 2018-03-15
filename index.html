@@ -6,7 +6,6 @@
     <title>STF</title>
      <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
@@ -26,10 +25,54 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Login</a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
         </div>
       </nav>
+
     </div>
+
+    <div id="leaderboard">
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Leaderboard</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="table" >
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Point</th>
+                  </tr>
+                </thead>
+                <tbody v-for="leader in data_leader">
+                  <tr>
+                    <th scope="row">{{data_leader.indexOf(leader) + 1}}</th>
+                    <td >{{leader.name}}</td>
+                    <td>{{leader.point}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 
     <!-- jQuery library -->
@@ -44,6 +87,8 @@
     </script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
     </script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/js/axios-core.js"></script>
+    <script src="/js/scriptLeader.js" charset="utf-8"></script>
   </body>
 </html>
