@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="/css/modal-onload.css">
   </head>
   <body>
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
@@ -33,15 +33,32 @@
     <!-- modal usage: audioplay track for later use-->
     <!-- button onclick 'play' will play track; on end of game will pause and reset track -->
     <div>
+      <p>the below is the bacground audio track during in-game play</p>
       <button onclick="playtrack()">play me</button>
       <button onclick="stoptrack()">stop me</button>
 
       <audio id="track">
           <source src="./assets/track/107 - battle (vs wild pokemon).mp3" type="audio/mpeg">
       </audio>
-
     </div>
 
+  <!-- on load modal page -->
+    <div class='panel' id='js-panel'>
+      <div class='panel__content'>
+        <h4>Hey There!</h4>
+        <h2>🙊 Smash The Face 🙈</h2>
+        <p>Press the button below to play  </p>
+      </div>
+      <div class='panel__flaps'>
+        <div class='flap outer flap--left'></div>
+        <a class='flap flap__btn' href='#'>Play</a>
+        <div class='flap outer flap--right'></div>
+      </div>
+    </div>
+
+    <!-- this button is called to restart the modal-onload card -->
+    <!-- <a class='replay' href='#' id='js-replay'>Replay</a> -->
+    
     <!-- jQuery library -->
     <script src="/js/jquery.js"></script>
     <!-- Popper JS -->
@@ -54,7 +71,9 @@
     </script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
     </script>
-    <!-- script to play track -->
+    <!-- script to play audio track -->
     <script src="/js/track.js"></script>
+    <!-- script to init modal card -->
+    <script src="/js/modal-onload.js"></script>
   </body>
 </html>
