@@ -2,9 +2,9 @@ new Vue({
   el:"#leaderboard",
   data: {
     data_leader: [],
+    data_search: [],
     ordering: 'descending',
     search: '',
-    data_search: []
   },
   mounted:function(){
     this.addLeader()
@@ -31,11 +31,11 @@ new Vue({
   },
   watch: {
     search: function (val) {
-      console.log(val);
+      let newVal = val.toLowerCase()
       let app = this
       app.data_search = []
       this.data_leader.forEach(data => {
-        let searchName = data.name.toLowerCase().search(val)
+        let searchName = data.name.toLowerCase().search(newVal)
         if (searchName >= 0) {
           app.data_search.push(data)
         }
