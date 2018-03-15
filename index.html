@@ -39,10 +39,14 @@
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Leaderboard</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <div class="row">
+                <div class="col-md-8">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Leaderboard Players</h5>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" placeholder="search" class="form-control" v-model="search">
+                </div>
+              </div>
             </div>
             <div class="modal-body">
               <table class="table" >
@@ -50,16 +54,24 @@
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Point</th>
+                    <th scope="col" v-on:click="changeOrder">Point</th>
                   </tr>
                 </thead>
-                <tbody v-for="leader in data_leader">
+                <tbody v-for="leader in data_leader" v-if="!data_search.length">
                   <tr>
                     <th scope="row">{{data_leader.indexOf(leader) + 1}}</th>
                     <td >{{leader.name}}</td>
                     <td>{{leader.point}}</td>
                   </tr>
                 </tbody>
+                <tbody v-for="leader in data_search" v-if="data_search.length">
+                  <tr>
+                    <th scope="row">{{data_search.indexOf(leader) + 1}}</th>
+                    <td >{{leader.name}}</td>
+                    <td>{{leader.point}}</td>
+                  </tr>
+                </tbody>
+
               </table>
             </div>
           <div class="modal-footer">
