@@ -7,7 +7,7 @@
     // On load, init panel
     var init = function() {
       panel.classList.add("is--open");
-      
+     
       // If btns are clicked, hide panel
       // Show replay button    
       for (var i=0; i < btns.length; i++) {
@@ -17,7 +17,9 @@
       }
       
       function hidePanel() {
-        panel.classList.remove("is--open");
+        $('.panel').hide()
+        $('#board').show()
+        // panel.classList.remove("is--open");
         btnReplay.classList.add("is--active");
       }
       
@@ -36,6 +38,7 @@
     
     // On load, call init function
     window.onload = function() {
+      $('#board').hide()
       init();
     }
   })();

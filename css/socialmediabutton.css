@@ -32,9 +32,10 @@
 
 footer {
   position: relative;
+  margin-top: 15em;
   left:0px;
   bottom:0px;
-  height:250px;
+  /* height:250px; */
   width:100%;
   display: flex;
   align-items: center;
@@ -42,7 +43,6 @@ footer {
   flex-direction: column;
   padding: 20px;
   overflow-x: hidden;
-  /* background: rgb(39, 238, 43); */
   background: rgb(39, 247, 104);
   font-family: "Raleway", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   color: #485f67;
