@@ -23,8 +23,8 @@
 	/* margin:2em 2em 4em auto; */
     /* margin-left: auto; */
     /* margin-right: auto; */
-	width:495px;
-    height:400px;
+	width:590px;
+    height:700px;
 }
 
 #gameboard div {
@@ -32,8 +32,9 @@
 	-webkit-box-sizing: border-box; /* Safari 3.0 - 5.0, Chrome 1 - 9, Android 2.1 - 3.x */
 	-moz-box-sizing: border-box;    /* Firefox 1 - 28 */
 	box-sizing: border-box;         /* Safari 5.1+, Chrome 10+, Firefox 29+, Opera 7+, IE 8+, Android 4.0+, iOS any */
-	background: #f6f8f95e; /* Old browsers */
-	border: 1px solid rgba(255, 212, 55, 0.65);
+	background: #554a3a8f; /* Old browsers */
+    border: 1px solid rgba(184, 154, 46, 0.65);
+    border-radius: 50%;
 	width:140px;
     height:140px;
 
