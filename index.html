@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
-  <body >
+  <body>
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
          <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/index.html">STF</a>
@@ -30,7 +30,17 @@
         </div>
       </nav>
     </div>
+    <!-- modal usage: audioplay track for later use-->
+    <!-- button onclick 'play' will play track; on end of game will pause and reset track -->
+    <div>
+      <button onclick="playtrack()">play me</button>
+      <button onclick="stoptrack()">stop me</button>
 
+      <audio id="track">
+          <source src="./assets/track/107 - battle (vs wild pokemon).mp3" type="audio/mpeg">
+      </audio>
+
+    </div>
 
     <!-- jQuery library -->
     <script src="/js/jquery.js"></script>
@@ -44,6 +54,7 @@
     </script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
     </script>
-
+    <!-- script to play track -->
+    <script src="/js/track.js"></script>
   </body>
 </html>
