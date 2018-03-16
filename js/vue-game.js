@@ -4,6 +4,7 @@ new Vue({
     nyawa: 4,
     point: 0,
     name: '',
+    files: [],
     muncul: {
       monster1: false,
       monster2: false,
@@ -29,8 +30,19 @@ new Vue({
   },
   mounted: function(){
     
+    this.getAllFile();
   },
   methods:{
+    getAllFile: function(){
+      var app = this;
+      request.get('/api/file').then(data => {
+        app.files = data.data.file;
+      }).catch(err => {
+        console.log(err)
+
+        })
+
+    },
     sendClick: function(){
       request.put('/api/photos/',{}).then(res =>{
 
@@ -62,6 +74,11 @@ new Vue({
     cekKemunculanMonster: function(){
       var app = this;
       let monsterMana  =  Math.floor(Math.random() * Math.floor(16)) + 1;
+      let fotoMana  =  Math.floor(Math.random() * Math.floor(this.files.length - 1 ));
+      let urlFoto = this.files[fotoMana].url;
+    
+      this.urlPhoto = urlFoto ;
+      console.log(this.urlPhoto)
       this.clearMonster();
 
       if(app.monsterNyerang && app.nyawa != 0){
