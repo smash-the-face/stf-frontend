@@ -10,7 +10,7 @@
 
     <link href="css/open-iconic-bootstrap.css" rel="stylesheet">
 
-
+    <link href="css/gameover.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/modal-onload.css">
     <link rel="stylesheet" href="/css/socialmediabutton.css">
     <link rel="stylesheet" href="/css/board.css">
@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/lives.css">
 
+
   </head>
-  <body>
+  <body >
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
          <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/index.html">STF</a>
@@ -42,6 +43,15 @@
               <!-- <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a> -->
               <a class="nav-link" data-toggle="modal" data-target="#uploadform"><i class="fa fa-plus"></i></a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" data-toggle="modal" data-target="#user" >User<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenters">&#9813;</a>
+            </li>
+            <li class="nav-item active" style="display:none;">
+              <a class="nav-link" data-toggle="modal" data-target="#emapleModal" id="btn-gameover">Gameover<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -50,25 +60,16 @@
     <div class="body-section">
       <!-- modal usage: audioplay track for later use-->
       <!-- button onclick 'play' will play track; on end of game will pause and reset track -->
-      <div>
+      <div style="display:none">
         <p>the below is the bacground audio track during in-game play</p>
         <button onclick="playtrack()">play me</button>
-        <button onclick="stoptrack()">stop me</button>
+        <button onclick="stoptrack()" id="btn-stop-music">stop me</button>
         <audio id="track">
             <source src="./assets/track/107 - battle (vs wild pokemon).mp3" type="audio/mpeg">
         </audio>
       </div>
 
-
-      <div class="lives">
-        <img id="heart" src="../assets/images/lives.png"> <!-- onclick="dropLives()" --> 
-        <img id="heart" src="../assets/images/lives.png"> 
-        <img id="heart" src="../assets/images/lives.png"> 
-        <img id="heart" src="../assets/images/lives.png"> 
-      </div>
-
-
-
+    <!-- Data Leaderboard -->
     <div id="leaderboard">
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -97,6 +98,7 @@
       </div>
     </div>
   </div>
+
   
   <!-- upload form -->
 
@@ -130,14 +132,131 @@
     </div>
 </div>
 
+<!-- user profile -->
+  <div id="userprofile">
+    <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="usercentertitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="modal-title" id="usertitle">Hello&nbsp;User</h5>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- container below is used for image -->
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto" title="12 likes">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+              </div>
+            </div>
+            <!-- <component-user
+              :data_leader="data_leader"
+              :data_search="data_search"
+              v-on:toggle-leader="changeOrder">
+            </component-user> -->
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-      
+          <!-- Modal -->
+  <div id="leadPhoto">
+    <div class="modal fade" id="exampleModalCenters" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Top Global Smashed Face 🤦</h5>
+            <div class="search">
+              <input type="text" name="search" id="" class="form-control" v-model="search" placeholder="search">
+            </div>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+            <!-- <span aria-hidden="true">&times;</span> -->
+            <!-- </button> -->
+          </div>
+          <div class="modal-body">
+            <!-- Table -->
+            <lead-photo-component
+              :lead="leadData"
+              :search="searchData"
+              v-on:data-sort="sort"
+              :orderby="orderBy">
+            </lead-photo-component>
+            <!-- End of Table -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
     <div id="app-game" class="name">
-    <nyawa :nyawa="nyawa"></nyawa>
-      
+      <nyawa :nyawa="nyawa"></nyawa>
+  <!-- Data Gameover -->
+    <!-- Modal -->
+    <div class="modal fade" id="emapleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            <div class="content">
+                <div class="good-job">
+                  <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                  <h1>Game Over!</h1>
+                  <div class="form-group">
+                    <h5>Your Point: {{ point }}</h5>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input type="text" class="form-control" id="inputName" v-model="name" aria-describedby="name" placeholder="Enter Name">
+                      </div>
+                    </div>
+                        <button type="btn btn-success" name="button" class="btn btn-danger" @click="sendPlayerPoint">Submit</button>
+                    <small id="emailHelp" class="form-text text-muted">Thanks For Playing</small>
+                  </div>
+                  <a class="btn btn-primary" href="/">Try Again ?</a>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal game over -->
+
       <!-- add game board -->
-      <div id="board">
+      <div id="board" :class="shake">
           <div id="game-contain">
               <div id="gameboard">
                   <div id="s00" style="top: 0px; left: 0px;">
@@ -210,7 +329,7 @@
     <!-- end app-game -->
       <!-- this button is called to restart the modal-onload card -->
       <!-- <a class='replay' href='#' id='js-replay'>Replay</a> -->
-    
+
     <div class="space"></div>
     <!-- footer section -->
     <footer>
@@ -219,7 +338,7 @@
         <!-- <a href="#" class="btn green">Green</a> -->
         <!-- <a href="#" class="btn blue">Sign in below</a> -->
       <!-- </div> -->
-      
+
       <div class="social-buttons">
         <!-- <a href="#" class="social-btn entypo-tumblr" target="_blank"><div class="sr">Tumblr - opens in new tab</div></a> -->
         <!-- <a href="#" class="social-btn entypo-twitter" target="_blank"><div class="sr">Twitter - opens in new tab</div></a> -->
@@ -235,17 +354,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/faker.js">
-    </script>
-    <script src="/js/bootstrap-notify.min.js">
-    </script>
+
+    <script src="/js/faker.js"></script>
+    <script src="/js/bootstrap-notify.min.js"></script>
+
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script charset="utf-8" src="/js/axios-core.js"></script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
     </script>
     <script src="/js/component-leaderboard.js" charset="utf-8"></script>
+
+    <script src="/js/scriptGameover.js" charset="utf-8"></script>
+
     <script src="/js/scriptLeader.js" charset="utf-8"></script>
-   
+
     <script src="/js/vue-game-component.js" charset="utf-8"></script>
     <script src="/js/vue-game.js" charset="utf-8"></script>
 
@@ -259,7 +382,12 @@
     <script src="/js/lives.js"></script>
     <!-- script for login -->
     <script src="/js/login.js"></script>
+
     <!-- script for upload -->
     <script src="/js/upload.js"></script>
+
+    <script src="./js/leaderboard-photo-component.js"></script>
+    <script src="./js/script.js"></script>
+
   </body>
 </html>

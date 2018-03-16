@@ -1,0 +1,13 @@
+
+
+.good-job {
+  text-align: center;
+  font-family: 'Montserrat', Arial,Helvetica, sans-serif;
+  color: #e2525c;
+}
+.good-job .fa-thumbs-o-down {
+  font-size: 60px;
+}
+.good-job h1 {
+  font-size: 45px;
+}
