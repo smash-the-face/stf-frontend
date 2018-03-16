@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="css/gameover.css" rel="stylesheet">
   </head>
   <body >
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
@@ -34,6 +35,7 @@
 
     </div>
 
+    <!-- Data Leaderboard -->
     <div id="leaderboard">
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -63,6 +65,42 @@
     </div>
   </div>
 
+  <!-- Data Gameover -->
+    <!-- Button -->
+    <div class="page-wrapper">
+      <a class="btn trigger" href="#">gameover</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-wrapper">
+      <div class="modal">
+        <div class="head">
+          <a class="btn-close trigger" href="#">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="content">
+            <div class="good-job">
+              <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+              <h1>Game Over!</h1>
+              <div class="form-group">
+                <h5>Your Point: 10</h5>
+                <div class="row">
+                  <div class="col-md-10">
+                    <input type="email" class="form-control" id="inputName" aria-describedby="name" placeholder="Enter Name">
+                  </div>
+                  <div class="col-md-2">
+                    <button type="btn btn-success" name="button">Submit</button>
+                  </div>
+                </div>
+                <small id="emailHelp" class="form-text text-muted">Thanks For Playing</small>
+              </div>
+              <button type="btn btn-secondary" name="button">Try Again ?</button>
+
+            </div>
+        </div>
+      </div>
+    </div>
 
     <!-- jQuery library -->
     <script src="/js/jquery.js"></script>
@@ -70,14 +108,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/faker.js">
-    </script>
-    <script src="/js/bootstrap-notify.min.js">
-    </script>
+    <script src="/js/faker.js"></script>
+    <script src="/js/bootstrap-notify.min.js"></script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/js/axios-core.js"></script>
     <script src="/js/scriptLeader.js" charset="utf-8"></script>
     <script src="/js/component-leaderboard.js" charset="utf-8"></script>
+    <script src="/js/scriptGameover.js" charset="utf-8"></script>
   </body>
 </html>
