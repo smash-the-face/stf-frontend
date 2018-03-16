@@ -1,8 +1,8 @@
 .board {
     grid-column: 100%;
     position: relative;
-    width: 1024px;
-    height: 920px;
+    width: 800px;
+    height: 600px;
     margin: auto;
 }
 
@@ -38,6 +38,17 @@
     -o-transition: all 0.5s ease-out;
     -ms-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
+}
+
+@media all and (max-width:500px){
+    #gameboard {
+        width:450px;
+        height:700px;
+    }
+    #gameboard div {
+        width:90px;
+        height:90px;
+    }
 }
 
 

@@ -38,6 +38,9 @@
             <li class="nav-item active">
               <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" data-toggle="modal" data-target="#user" >User<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -46,7 +49,7 @@
     <div class="body-section">
       <!-- modal usage: audioplay track for later use-->
       <!-- button onclick 'play' will play track; on end of game will pause and reset track -->
-      
+
       <div>
         <p>the below is the bacground audio track during in-game play</p>
         <button onclick="playtrack()">play me</button>
@@ -94,6 +97,58 @@
       </div>
     </div>
   </div>
+<!-- user profile -->
+  <div id="userprofile">
+    <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="usercentertitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="modal-title" id="usertitle">Hello&nbsp;User</h5>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- container below is used for image -->
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto" title="12 likes">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+              </div>
+            </div>
+            <!-- <component-user
+              :data_leader="data_leader"
+              :data_search="data_search"
+              v-on:toggle-leader="changeOrder">
+            </component-user> -->
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
       
