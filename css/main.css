@@ -13,3 +13,26 @@ body {
 .space {
     padding:2em;
 }
+
+li > a {
+    cursor: pointer;
+}
+
+div#vue-app{
+    background-color: rgb(255, 87, 71);
+    /* color: red; */
+}
+
+#bottom-shadow{
+    width: 100%;
+    background-color: rgb(201,70,62) !important;
+    padding: 5px;
+    z-index: 10;
+    border-radius: 0px 0px 30px 30px;
+}
+
+#logo-pika{
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+}

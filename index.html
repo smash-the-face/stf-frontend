@@ -22,8 +22,8 @@
   </head>
   <body >
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
-         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/index.html">STF</a>
+        <nav class="navbar navbar-expand-sm navbar-dark" id="navigation">
+        <a href="/index.html"><img id="logo-pika"  src="/assets/images/pikachu.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,26 +31,29 @@
         <div class="collapse navbar-collapse" id="navbarsExample03">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link btn blue" href="/index.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">Login</a>
+            </li> -->
+            <li class="nav-item active">
+              <a class="nav-link btn blue" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a>
-            </li>
+              <a class="nav-link btn blue" data-toggle="modal" data-target="#user" >User<span class="sr-only">(current)</span></a>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenters">&#9813;</a>
+              <a class="nav-link  btn blue" href="#" data-toggle="modal" data-target="#exampleModalCenters">&#9813;</a>
             </li>
             <li class="nav-item active" style="display:none;">
-              <a class="nav-link" data-toggle="modal" data-target="#emapleModal" id="btn-gameover">Gameover<span class="sr-only">(current)</span></a>
+              <a class="nav-link btn blue" data-toggle="modal" data-target="#emapleModal" id="btn-gameover">Gameover<span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
-      </nav>
-
+      </nav>      
     </div>
     <div class="body-section">
+    <div id="bottom-shadow"></div>
+    
       <!-- modal usage: audioplay track for later use-->
       <!-- button onclick 'play' will play track; on end of game will pause and reset track -->
       <div style="display:none">
@@ -91,6 +94,58 @@
       </div>
     </div>
   </div>
+<!-- user profile -->
+  <div id="userprofile">
+    <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="usercentertitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="modal-title" id="usertitle">Hello&nbsp;User</h5>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- container below is used for image -->
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto" title="12 likes">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+              </div>
+            </div>
+            <!-- <component-user
+              :data_leader="data_leader"
+              :data_search="data_search"
+              v-on:toggle-leader="changeOrder">
+            </component-user> -->
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
           <!-- Modal -->
