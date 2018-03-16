@@ -13,3 +13,7 @@ body {
 .space {
     padding:2em;
 }
+
+li > a {
+    cursor: pointer;
+}
