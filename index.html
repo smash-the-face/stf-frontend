@@ -6,14 +6,17 @@
     <title>STF</title>
      <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="css/open-iconic-bootstrap.css" rel="stylesheet">
+
 
     <link rel="stylesheet" href="/css/modal-onload.css">
     <link rel="stylesheet" href="/css/socialmediabutton.css">
     <link rel="stylesheet" href="/css/board.css">
     <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="/css/main.css">
+
   </head>
   <body>
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
@@ -31,9 +34,13 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Login</a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
         </div>
       </nav>
+
     </div>
     <div class="body-section">
       <!-- modal usage: audioplay track for later use-->
@@ -42,12 +49,44 @@
         <p>the below is the bacground audio track during in-game play</p>
         <button onclick="playtrack()">play me</button>
         <button onclick="stoptrack()">stop me</button>
-
         <audio id="track">
             <source src="./assets/track/107 - battle (vs wild pokemon).mp3" type="audio/mpeg">
         </audio>
       </div>
 
+
+
+    <div id="leaderboard">
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="row">
+                <div class="col-md-8">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Leaderboard Players</h5>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" placeholder="search" class="form-control" v-model="search">
+                </div>
+              </div>
+            </div>
+            <div class="modal-body">
+              <component-leader
+                :data_leader="data_leader"
+                :data_search="data_search"
+                v-on:toggle-leader="changeOrder">
+              </component-leader>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      
     <div id="app-game" class="name">
     <nyawa :nyawa="nyawa"></nyawa>
       
@@ -157,7 +196,9 @@
     <script charset="utf-8" src="/js/axios-core.js"></script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
     </script>
-
+    <script src="/js/component-leaderboard.js" charset="utf-8"></script>
+    <script src="/js/scriptLeader.js" charset="utf-8"></script>
+   
     <script src="/js/vue-game-component.js" charset="utf-8"></script>
     <script src="/js/vue-game.js" charset="utf-8"></script>
 
