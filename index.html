@@ -42,8 +42,8 @@
             <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenters">&#9813;</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" data-toggle="modal" data-target="#emapleModal">Gameover<span class="sr-only">(current)</span></a>
+            <li class="nav-item active" style="display:none;">
+              <a class="nav-link" data-toggle="modal" data-target="#emapleModal" id="btn-gameover">Gameover<span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
@@ -126,6 +126,10 @@
     </div>
   </div>
 
+
+
+    <div id="app-game" class="name">
+      <nyawa :nyawa="nyawa"></nyawa>
   <!-- Data Gameover -->
     <!-- Modal -->
     <div class="modal fade" id="emapleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -139,28 +143,23 @@
                   <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
                   <h1>Game Over!</h1>
                   <div class="form-group">
-                    <h5>Your Point: 10</h5>
+                    <h5>Your Point: {{ point }}</h5>
                     <div class="row">
-                      <div class="col-md-10">
-                        <input type="text" class="form-control" id="inputName" aria-describedby="name" placeholder="Enter Name">
-                      </div>
-                      <div class="col-md-2">
-                        <button type="btn btn-success" name="button">Submit</button>
+                      <div class="col-md-12">
+                        <input type="text" class="form-control" id="inputName" v-model="name" aria-describedby="name" placeholder="Enter Name">
                       </div>
                     </div>
+                        <button type="btn btn-success" name="button" class="btn btn-danger" @click="sendPlayerPoint">Submit</button>
                     <small id="emailHelp" class="form-text text-muted">Thanks For Playing</small>
                   </div>
-                  <button type="btn btn-secondary" name="button">Try Again ?</button>
+                  <a class="btn btn-primary" href="/">Try Again ?</a>
                 </div>
             </div>
           </div>
       </div>
     </div>
   </div>
-
-
-    <div id="app-game" class="name">
-      <nyawa :nyawa="nyawa"></nyawa>
+  <!-- end modal game over -->
 
       <!-- add game board -->
       <div id="board" :class="shake">
