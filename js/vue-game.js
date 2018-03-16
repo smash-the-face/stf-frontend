@@ -17,9 +17,14 @@ new Vue({
       monster10: false,
       monster11: false,
       monster12: false,
+      monster13: false,
+      monster14: false,
+      monster15: false,
+      monster16: false,
     },
     monsterNyerang: false,
-    gameStart: false
+    gameStart: false,
+    urlPhoto: '/images/scary-monster.png'
   },
   mounted: function(){
     
@@ -55,7 +60,7 @@ new Vue({
     },
     cekKemunculanMonster: function(){
       var app = this;
-      let monsterMana  =  Math.floor(Math.random() * Math.floor(12)) + 1;
+      let monsterMana  =  Math.floor(Math.random() * Math.floor(16)) + 1;
       this.clearMonster();
 
       if(app.monsterNyerang && app.nyawa != 0){
@@ -70,6 +75,8 @@ new Vue({
     tembakMonster: function(){
       this.monsterNyerang = false;
       this.point++;
+      console.log(this.point)
+      console.log(this.monsterNyerang,'status monster')
       alert('Monster Ketembak');
     },
     clearMonster: function(){
@@ -86,6 +93,10 @@ new Vue({
         monster10: false,
         monster11: false,
         monster12: false,
+        monster13: false,
+        monster14: false,
+        monster15: false,
+        monster16: false,
       }
     },
     startGame: function(){
