@@ -30,6 +30,56 @@
         </div>
       </nav>
     </div>
+    <!-- app game -->
+    <div id="app-game"  class="container" style="margin-top:10px;">
+      <button @click="startGame" class="btn btn-primary">Game Start</button>
+      <h4>Nyawa: {{ nyawa }}</h4>
+      <div class="row">
+        <div class="col" >
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster1" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster2" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster3" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster4" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster5" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster6" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster7" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster8" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster9" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster10" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster11" @click="tembakMonster"/>
+        </div>
+        <div class="col">
+          <img src="/images/scary-monster.png" class="img-fluid"alt=""v-if="muncul.monster12" @click="tembakMonster"/>
+        </div>
+      </div>
+      <div class="jumbotron"  v-if="nyawa == 0">
+        <h2 class="text-center">Game Over, Your Point {{ point }}</h2>
+        <div class="form-group">
+          <input type="text" name="name" id="name" value="" v-model="name" class="form-control" autofocus="" placeholder="Player Name"/>
+        </div>
+        <button class="btn btn-primary btn-block" @click="sendPlayerPoint"type="button">Send To Leader Board</button>
+      </div>
+    </div>
 
 
     <!-- jQuery library -->
@@ -42,8 +92,11 @@
     </script>
     <script src="/js/bootstrap-notify.min.js">
     </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script charset="utf-8" src="/js/axios-core.js"></script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
     </script>
+    <script src="/js/vue-game.js" charset="utf-8"></script>
 
   </body>
 </html>
