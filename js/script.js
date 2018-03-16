@@ -20,11 +20,25 @@ var app = new Vue({
                 this.leadData.reverse()
             }else {
                 this.leadData.reverse()
-                // this.orderBy = 'descending'
             }
         }
     },
     mounted: function () {
         this.readData()
+    },
+    watch: {
+        search: function (input) {
+            let value = input.toLowerCase()
+            console.log(value);
+            
+            let app = this
+            app.searchData = []
+            this.leadData.map(data => {
+                let searchFeature = data.uploaderName.toLowerCase().search(value)
+                if (searchFeature >= 0) {
+                    app.searchData.push(data)
+                }
+            })
+        }
     }
 })
