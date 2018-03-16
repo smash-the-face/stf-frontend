@@ -110,6 +110,7 @@ new Vue({
            app.clearMonster();
            app.shake = 'animated shake';
             document.getElementById("btn-stop-music").click();
+            document.getElementById("btn-gameover").click();
            clearInterval(gameStart);
          } else {
            app.cekKemunculanMonster()
