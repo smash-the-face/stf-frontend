@@ -9,8 +9,13 @@
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="/css/modal-onload.css">
+    <link rel="stylesheet" href="/css/socialmediabutton.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/main.css">
   </head>
-  <body >
+  <body>
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
          <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/index.html">STF</a>
@@ -30,6 +35,79 @@
         </div>
       </nav>
     </div>
+    <div class="body-section">
+      <!-- modal usage: audioplay track for later use-->
+      <!-- button onclick 'play' will play track; on end of game will pause and reset track -->
+      <div>
+        <p>the below is the bacground audio track during in-game play</p>
+        <button onclick="playtrack()">play me</button>
+        <button onclick="stoptrack()">stop me</button>
+
+        <audio id="track">
+            <source src="./assets/track/107 - battle (vs wild pokemon).mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <!-- add game board -->
+      <div id="board">
+          <div id="game-contain">
+              <div id="gameboard">
+                  <div id="s00" style="top: 0px; left: 0px;"></div>
+                  <div id="s10" style="top: 150px; left: 0px;"></div>
+                  <div id="s20" style="top: 300px; left: 0px;">
+                    <!-- <img src="../assets/images/..." alt="" srcset="" height="auto" width="140px" class="animated bounceOut">   -->
+                  </div>
+                  <div id="s30" style="top: 450px; left: 0px;"></div>
+                  <div id="s01" style="top: 0px; left: 150px;"></div>
+                  <div id="s11" style="top: 150px; left: 150px;"></div>
+                  <div id="s21" style="top: 300px; left: 150px;"></div>
+                  <div id="s31" style="top: 450px; left: 150px;"></div>
+                  <div id="s02" style="top: 0px; left: 300px;"></div>
+                  <div id="s12" style="top: 150px; left: 300px;"></div>
+                  <div id="s22" style="top: 300px; left: 300px;"></div>
+                  <div id="s32" style="top: 450px; left: 300px;"></div>
+                  <div id="s03" style="top: 0px; left: 450px;"></div>
+                  <div id="s14" style="top: 150px; left: 450px;"></div>
+                  <div id="s23" style="top: 300px; left: 450px;"></div>
+                  <div id="s33" style="top: 450px; left: 450px;"></div>
+              </div>
+          </div>
+      </div>
+
+    <!-- on load modal page -->
+      <div class='panel' id='js-panel'>
+        <div class='panel__content'>
+          <h4>Hey There!</h4>
+          <h2>🙊 Smash The Face 🙈</h2>
+          <p>Press the button below to play</p>
+        </div>
+        <div class='panel__flaps'>
+          <div class='flap outer flap--left'></div>
+          <a class='flap flap__btn' href='#' onclick="playtrack()" data-dismiss="modal">Play</a>
+          <div class='flap outer flap--right'></div>
+        </div>
+      </div>
+      <!-- this button is called to restart the modal-onload card -->
+      <!-- <a class='replay' href='#' id='js-replay'>Replay</a> -->
+    
+    <div class="space"></div>
+    <!-- footer section -->
+    <footer>
+      <div>
+        <a href="#" class="btn red">Sign In</a>
+        <!-- <a href="#" class="btn green">Green</a> -->
+        <!-- <a href="#" class="btn blue">Sign in below</a> -->
+      </div>
+      
+      <div class="social-buttons">
+        <!-- <a href="#" class="social-btn entypo-tumblr" target="_blank"><div class="sr">Tumblr - opens in new tab</div></a> -->
+        <!-- <a href="#" class="social-btn entypo-twitter" target="_blank"><div class="sr">Twitter - opens in new tab</div></a> -->
+        <a href="#" class="social-btn entypo-facebook" target="_blank"><div class="sr">Facebook - opens in new tab</div></a>
+        <!-- <a href="#" class="social-btn entypo-instagrem" target="_blank"><div class="sr">Instagram - opens in new tab</div></a> -->
+      </div>
+    </footer>
+  </div>
+
 
 
     <!-- jQuery library -->
@@ -44,6 +122,11 @@
     </script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
     </script>
-
+    <!-- script to play audio track -->
+    <script src="/js/track.js"></script>
+    <!-- script to init modal card -->
+    <script src="/js/modal-onload.js"></script>
+    <!-- script for social media buttons -->
+    <script src="/js/socialmediabutton.js"></script>
   </body>
 </html>
