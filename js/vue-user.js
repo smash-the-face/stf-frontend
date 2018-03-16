@@ -11,13 +11,10 @@ new Vue({
       addUser: function () {
         var app = this
         request.get('/api/getprofile', {
-            headers: {token: localStorage.token
-            }
+            headers: {token: localStorage.token}
         })
         .then(function (response) {
-          response.data.data.reverse().forEach((data,i) => {
-            app.data_profile.push(data)
-          })
+          console.log(response)
         })
       },
     },
