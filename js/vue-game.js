@@ -23,7 +23,8 @@ new Vue({
       monster16: false,
     },
     monsterNyerang: false,
-    gameStart: false
+    gameStart: false,
+    urlPhoto: '/images/scary-monster.png'
   },
   mounted: function(){
     
@@ -74,6 +75,8 @@ new Vue({
     tembakMonster: function(){
       this.monsterNyerang = false;
       this.point++;
+      console.log(this.point)
+      console.log(this.monsterNyerang,'status monster')
       alert('Monster Ketembak');
     },
     clearMonster: function(){
