@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/board.css">
     <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/lives.css">
   </head>
   <body>
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
@@ -48,6 +49,13 @@
         </audio>
       </div>
 
+      <div class="lives">
+        <img id="heart" src="../assets/images/lives.png"> <!-- onclick="dropLives()" --> 
+        <img id="heart" src="../assets/images/lives.png"> 
+        <img id="heart" src="../assets/images/lives.png"> 
+        <img id="heart" src="../assets/images/lives.png"> 
+      </div>
+
       <!-- add game board -->
       <div id="board">
           <div id="game-contain">
@@ -74,7 +82,7 @@
           </div>
       </div>
 
-      
+
     <!-- on load modal page -->
       <div class='panel' id='js-panel'>
         <div class='panel__content'>
@@ -132,6 +140,7 @@
     <script src="/js/modal-onload.js"></script>
     <!-- script for social media buttons -->
     <script src="/js/socialmediabutton.js"></script>
-
+    <!-- script for lives -->
+    <script src="/js/lives.js"></script>
   </body>
 </html>
