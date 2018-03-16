@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>STF</title>
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="css/open-iconic-bootstrap.css" rel="stylesheet">
+
+    <link href="css/gameover.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/modal-onload.css">
+    <link rel="stylesheet" href="/css/socialmediabutton.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/lives.css">
+
+
+  </head>
+  <body >
+    <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
+        <nav class="navbar navbar-expand-sm navbar-dark" id="navigation">
+        <a href="/index.html"><img id="logo-pika"  src="/assets/images/pikachu.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link btn blue" href="/index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li> -->
+            <li class="nav-item active">
+              <a class="nav-link btn blue" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link btn blue" data-toggle="modal" data-target="#user" >User<span class="sr-only">(current)</span></a>
+              <!-- <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a> -->
+              <a class="nav-link btn blue" data-toggle="modal" data-target="#uploadform"><i class="fa fa-plus"></i></a>
+            </li>
+            <li class="nav-item active" style="display:none;">
+              <a class="nav-link btn blue" data-toggle="modal" data-target="#emapleModal" id="btn-gameover">Gameover<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn blue" href="#" data-toggle="modal" data-target="#exampleModalCenters">&#9813;</a>
+            </li>
+          </ul>
+        </div>
+      </nav>      
+    </div>
+    <div class="body-section">
+    <div id="bottom-shadow"></div>
+    
+      <!-- modal usage: audioplay track for later use-->
+      <!-- button onclick 'play' will play track; on end of game will pause and reset track -->
+      <div style="display:none">
+        <p>the below is the bacground audio track during in-game play</p>
+        <button onclick="playtrack()">play me</button>
+        <button onclick="stoptrack()" id="btn-stop-music">stop me</button>
+        <audio id="track">
+            <source src="./assets/track/107 - battle (vs wild pokemon).mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+    <!-- Data Leaderboard -->
+    <div id="leaderboard">
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="row">
+                <div class="col-md-8">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Leaderboard Players</h5>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" placeholder="search" class="form-control" v-model="search">
+                </div>
+              </div>
+            </div>
+            <div class="modal-body">
+              <component-leader
+                :data_leader="data_leader"
+                :data_search="data_search"
+                v-on:toggle-leader="changeOrder">
+              </component-leader>
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- user profile -->
+  <div id="userprofile">
+    <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="usercentertitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="modal-title" id="usertitle">Hello&nbsp;User</h5>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- container below is used for image -->
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto" title="12 likes">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+              </div>
+            </div>
+            <!-- <component-user
+              :data_leader="data_leader"
+              :data_search="data_search"
+              v-on:toggle-leader="changeOrder">
+            </component-user> -->
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <!-- upload form -->
+
+  <div class="modal fade" id="uploadform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Upload File</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <i class="fa fa-file prefix grey-text"></i>
+                    <input type="file" id="form3" class="form-control validate" multiple>
+                    <label data-error="wrong" data-success="right" for="form3">Upload File</label>
+                </div>
+
+                <!-- <div class="md-form mb-4">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <input type="email" id="form2" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="form2">Your email</label>
+                </div> -->
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-indigo" @click="sendForm">Upload <i class="fa fa-paper-plane-o ml-1"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- user profile -->
+  <div id="userprofile">
+    <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="usercentertitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="modal-title" id="usertitle">Hello&nbsp;User</h5>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- container below is used for image -->
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto" title="12 likes">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+              </div>
+            </div>
+            <!-- <component-user
+              :data_leader="data_leader"
+              :data_search="data_search"
+              v-on:toggle-leader="changeOrder">
+            </component-user> -->
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          <!-- Modal -->
+  <div id="leadPhoto">
+    <div class="modal fade" id="exampleModalCenters" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Top Global Smashed Face 🤦</h5>
+            <div class="search">
+              <input type="text" name="search" id="" class="form-control" v-model="search" placeholder="search">
+            </div>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+            <!-- <span aria-hidden="true">&times;</span> -->
+            <!-- </button> -->
+          </div>
+          <div class="modal-body">
+            <!-- Table -->
+            <lead-photo-component
+              :lead="leadData"
+              :search="searchData"
+              v-on:data-sort="sort"
+              :orderby="orderBy">
+            </lead-photo-component>
+            <!-- End of Table -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <div id="app-game" class="name">
+      <nyawa :nyawa="nyawa"></nyawa>
+  <!-- Data Gameover -->
+    <!-- Modal -->
+    <div class="modal fade" id="emapleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            <div class="content">
+                <div class="good-job">
+                  <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                  <h1>Game Over!</h1>
+                  <div class="form-group">
+                    <h5>Your Point: {{ point }}</h5>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input type="text" class="form-control" id="inputName" v-model="name" aria-describedby="name" placeholder="Enter Name">
+                      </div>
+                    </div>
+                        <button type="btn btn-success" name="button" class="btn btn-danger" @click="sendPlayerPoint">Submit</button>
+                    <small id="emailHelp" class="form-text text-muted">Thanks For Playing</small>
+                  </div>
+                  <a class="btn btn-primary" href="/">Try Again ?</a>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- end modal game over -->
+
+      <!-- add game board -->
+      <div id="board" :class="shake">
+          <div id="game-contain">
+              <div id="gameboard">
+                  <div id="s00" style="top: 0px; left: 0px;">
+                    <face-to-smash  :muncul="muncul.monster1" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s10" style="top: 150px; left: 0px;">
+                    <face-to-smash  :muncul="muncul.monster2" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s20" style="top: 300px; left: 0px;">
+                    <face-to-smash  :muncul="muncul.monster3" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s30" style="top: 450px; left: 0px;">
+                    <face-to-smash  :muncul="muncul.monster4" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s01" style="top: 0px; left: 150px;">
+                    <face-to-smash  :muncul="muncul.monster5" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s11" style="top: 150px; left: 150px;">
+                    <face-to-smash  :muncul="muncul.monster6" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s21" style="top: 300px; left: 150px;">
+                    <face-to-smash  :muncul="muncul.monster7" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s31" style="top: 450px; left: 150px;">
+                    <face-to-smash  :muncul="muncul.monster8" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s02" style="top: 0px; left: 300px;">
+                    <face-to-smash  :muncul="muncul.monster9" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s12" style="top: 150px; left: 300px;">
+                    <face-to-smash  :muncul="muncul.monster10" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s22" style="top: 300px; left: 300px;">
+                    <face-to-smash  :muncul="muncul.monster11" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s32" style="top: 450px; left: 300px;">
+                    <face-to-smash  :muncul="muncul.monster12" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s03" style="top: 0px; left: 450px;">
+                    <face-to-smash  :muncul="muncul.monster13" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s14" style="top: 150px; left: 450px;">
+                    <face-to-smash  :muncul="muncul.monster14" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s23" style="top: 300px; left: 450px;">
+                    <face-to-smash  :muncul="muncul.monster15" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+                  <div id="s33" style="top: 450px; left: 450px;">
+                    <face-to-smash  :muncul="muncul.monster16" v-on:smashing="tembakMonster"  :source="urlPhoto"/>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+    <!-- on load modal page -->
+      <div class='panel' id='js-panel'>
+        <div class='panel__content'>
+          <h4>Hey There!</h4>
+          <h2>🙊 Smash The Face 🙈</h2>
+          <p>Press the button below to play</p>
+        </div>
+        <div class='panel__flaps'>
+          <div class='flap outer flap--left'></div>
+          <a class='flap flap__btn' href='#'onclick="playtrack()" data-dismiss="modal" @click="startGame">Play</a>
+          <div class='flap outer flap--right'></div>
+        </div>
+      </div>
+    </div>
+    <!-- end app-game -->
+      <!-- this button is called to restart the modal-onload card -->
+      <!-- <a class='replay' href='#' id='js-replay'>Replay</a> -->
+
+    <div class="space"></div>
+    <!-- footer section -->
+    <footer>
+      <div>
+        <!-- <a class="btn red" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onclick="checkLoginState()">Sign In</a> -->
+        <!-- <a href="#" class="btn green">Green</a> -->
+        <!-- <a href="#" class="btn blue">Sign in below</a> -->
+      <!-- </div> -->
+
+      <div class="social-buttons">
+        <!-- <a href="#" class="social-btn entypo-tumblr" target="_blank"><div class="sr">Tumblr - opens in new tab</div></a> -->
+        <!-- <a href="#" class="social-btn entypo-twitter" target="_blank"><div class="sr">Twitter - opens in new tab</div></a> -->
+        <a class="social-btn entypo-facebook" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" onclick="checkLoginState()"><div class="sr">Facebook - opens in new tab</div></a>
+        <!-- <a href="#" class="social-btn entypo-instagrem" target="_blank"><div class="sr">Instagram - opens in new tab</div></a> -->
+      </div>
+    </footer>
+  </div>
+
+    <!-- jQuery library -->
+    <script src="/js/jquery.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script src="/js/faker.js"></script>
+    <script src="/js/bootstrap-notify.min.js"></script>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script charset="utf-8" src="/js/axios-core.js"></script>
+    <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
+    </script>
+    <script src="/js/component-leaderboard.js" charset="utf-8"></script>
+
+    <script src="/js/scriptGameover.js" charset="utf-8"></script>
+
+    <script src="/js/scriptLeader.js" charset="utf-8"></script>
+
+    <script src="/js/vue-game-component.js" charset="utf-8"></script>
+    <script src="/js/vue-game.js" charset="utf-8"></script>
+
+    <!-- script to play audio track -->
+    <script src="/js/track.js"></script>
+    <!-- script to init modal card -->
+    <script src="/js/modal-onload.js"></script>
+    <!-- script for social media buttons -->
+    <script src="/js/socialmediabutton.js"></script>
+    <!-- script for lives -->
+    <script src="/js/lives.js"></script>
+    <!-- script for login -->
+    <script src="/js/login.js"></script>
+
+    <!-- script for upload -->
+    <script src="/js/upload.js"></script>
+
+    <script src="./js/leaderboard-photo-component.js"></script>
+    <script src="./js/script.js"></script>
+
+  </body>
+</html>
