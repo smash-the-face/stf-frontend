@@ -16,11 +16,7 @@ var app = new Vue({
             })
         },
         sort: function () {
-            if (this.orderBy === true) {
-                this.leadData.reverse()
-            }else {
-                this.leadData.reverse()
-            }
+            this.leadData.reverse()
         }
     },
     mounted: function () {
