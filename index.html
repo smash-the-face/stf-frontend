@@ -10,13 +10,14 @@
 
     <link href="css/open-iconic-bootstrap.css" rel="stylesheet">
 
-
+    <link href="css/gameover.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/modal-onload.css">
     <link rel="stylesheet" href="/css/socialmediabutton.css">
     <link rel="stylesheet" href="/css/board.css">
     <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/lives.css">
+
 
   </head>
   <body >
@@ -55,6 +56,7 @@
         </audio>
       </div>
 
+    <!-- Data Leaderboard -->
     <div id="leaderboard">
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -84,6 +86,42 @@
     </div>
   </div>
 
+  <!-- Data Gameover -->
+    <!-- Button -->
+    <div class="page-wrapper">
+      <a class="btn trigger" href="#">gameover</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-wrapper">
+      <div class="modal">
+        <div class="head">
+          <a class="btn-close trigger" href="#">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="content">
+            <div class="good-job">
+              <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+              <h1>Game Over!</h1>
+              <div class="form-group">
+                <h5>Your Point: 10</h5>
+                <div class="row">
+                  <div class="col-md-10">
+                    <input type="email" class="form-control" id="inputName" aria-describedby="name" placeholder="Enter Name">
+                  </div>
+                  <div class="col-md-2">
+                    <button type="btn btn-success" name="button">Submit</button>
+                  </div>
+                </div>
+                <small id="emailHelp" class="form-text text-muted">Thanks For Playing</small>
+              </div>
+              <button type="btn btn-secondary" name="button">Try Again ?</button>
+
+            </div>
+        </div>
+      </div>
+    </div>
 
       
     <div id="app-game" class="name">
@@ -188,15 +226,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/faker.js">
-    </script>
-    <script src="/js/bootstrap-notify.min.js">
-    </script>
+
+    <script src="/js/faker.js"></script>
+    <script src="/js/bootstrap-notify.min.js"></script>
+  
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script charset="utf-8" src="/js/axios-core.js"></script>
     <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
     </script>
     <script src="/js/component-leaderboard.js" charset="utf-8"></script>
+
+    <script src="/js/scriptGameover.js" charset="utf-8"></script>
+
     <script src="/js/scriptLeader.js" charset="utf-8"></script>
    
     <script src="/js/vue-game-component.js" charset="utf-8"></script>
@@ -212,5 +254,6 @@
     <script src="/js/lives.js"></script>
     <!-- script for login -->
     <script src="/js/login.js"></script>
+
   </body>
 </html>

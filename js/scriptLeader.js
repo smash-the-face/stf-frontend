@@ -4,7 +4,7 @@ new Vue({
     data_leader: [],
     data_search: [],
     ordering: 'descending',
-    search: '',
+    search: ''
   },
   mounted:function(){
     this.addLeader()
