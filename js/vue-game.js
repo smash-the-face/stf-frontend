@@ -23,6 +23,7 @@ new Vue({
       monster16: false,
     },
     monsterNyerang: false,
+    shake: '',
     gameStart: false,
     urlPhoto: '/images/scary-monster.png'
   },
@@ -65,6 +66,7 @@ new Vue({
 
       if(app.monsterNyerang && app.nyawa != 0){
         this.nyawa--;
+
       }
       if(app.nyawa != 0 ){
         app.monsterNyerang = false;
@@ -109,6 +111,7 @@ new Vue({
          if (app.nyawa == 0) {
           console.log('berhenti');
            app.clearMonster();
+           app.shake = 'animated shake';
            clearInterval(gameStart);
          } else {
            app.cekKemunculanMonster()

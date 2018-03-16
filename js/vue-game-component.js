@@ -22,6 +22,10 @@ Vue.component('face-to-smash', {
 });
 
 Vue.component('nyawa',{
-  template: `<h2>{{nyawa}}</h2>`,
+  template: `
+      <div class="lives">
+        <img id="heart" src="../assets/images/lives.png" v-for="n in nyawa" >  
+      </div>
+`,
   props: ['nyawa']
 })

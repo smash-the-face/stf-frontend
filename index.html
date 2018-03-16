@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/css/lives.css">
 
   </head>
-  <body>
+  <body >
     <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
          <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="/index.html">STF</a>
@@ -56,12 +56,6 @@
       </div>
 
 
-      <div class="lives">
-        <img id="heart" src="../assets/images/lives.png"> <!-- onclick="dropLives()" --> 
-        <img id="heart" src="../assets/images/lives.png"> 
-        <img id="heart" src="../assets/images/lives.png"> 
-        <img id="heart" src="../assets/images/lives.png"> 
-      </div>
 
 
 
@@ -97,10 +91,10 @@
 
       
     <div id="app-game" class="name">
-    <nyawa :nyawa="nyawa"></nyawa>
+      <nyawa :nyawa="nyawa"></nyawa>
       
       <!-- add game board -->
-      <div id="board">
+      <div id="board" :class="shake">
           <div id="game-contain">
               <div id="gameboard">
                   <div id="s00" style="top: 0px; left: 0px;">
