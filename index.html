@@ -41,11 +41,14 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link btn blue" data-toggle="modal" data-target="#user" >User<span class="sr-only">(current)</span></a>
-            <li class="nav-item">
-              <a class="nav-link  btn blue" href="#" data-toggle="modal" data-target="#exampleModalCenters">&#9813;</a>
+              <!-- <a class="nav-link" data-toggle="modal" data-target="#exampleModalCenter" >Leaderboard<span class="sr-only">(current)</span></a> -->
+              <a class="nav-link btn blue" data-toggle="modal" data-target="#uploadform"><i class="fa fa-plus"></i></a>
             </li>
             <li class="nav-item active" style="display:none;">
               <a class="nav-link btn blue" data-toggle="modal" data-target="#emapleModal" id="btn-gameover">Gameover<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btn blue" href="#" data-toggle="modal" data-target="#exampleModalCenters">&#9813;</a>
             </li>
           </ul>
         </div>
@@ -147,6 +150,92 @@
   </div>
 </div>
 
+  
+  <!-- upload form -->
+
+  <div class="modal fade" id="uploadform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Upload File</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <i class="fa fa-file prefix grey-text"></i>
+                    <input type="file" id="form3" class="form-control validate" multiple>
+                    <label data-error="wrong" data-success="right" for="form3">Upload File</label>
+                </div>
+
+                <!-- <div class="md-form mb-4">
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <input type="email" id="form2" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="form2">Your email</label>
+                </div> -->
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-indigo" @click="sendForm">Upload <i class="fa fa-paper-plane-o ml-1"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- user profile -->
+  <div id="userprofile">
+    <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="usercentertitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-md-8">
+                <h5 class="modal-title" id="usertitle">Hello&nbsp;User</h5>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- container below is used for image -->
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto" title="12 likes">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+                <div class="col-4">
+                  <img src="../assets/images/bMo.gif" width="150px" height="auto">
+                </div>
+              </div>
+            </div>
+            <!-- <component-user
+              :data_leader="data_leader"
+              :data_search="data_search"
+              v-on:toggle-leader="changeOrder">
+            </component-user> -->
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
           <!-- Modal -->
   <div id="leadPhoto">
@@ -180,6 +269,7 @@
       </div>
     </div>
   </div>
+
 
 
 
@@ -343,6 +433,10 @@
     <script src="/js/lives.js"></script>
     <!-- script for login -->
     <script src="/js/login.js"></script>
+
+    <!-- script for upload -->
+    <script src="/js/upload.js"></script>
+
     <script src="./js/leaderboard-photo-component.js"></script>
     <script src="./js/script.js"></script>
 
