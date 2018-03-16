@@ -42,6 +42,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">&#9813;</a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" data-toggle="modal" data-target="#emapleModal">Gameover<span class="sr-only">(current)</span></a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -123,10 +126,42 @@
     </div>
   </div>
 
+  <!-- Data Gameover -->
+    <!-- Modal -->
+    <div class="modal fade" id="emapleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            <div class="content">
+                <div class="good-job">
+                  <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                  <h1>Game Over!</h1>
+                  <div class="form-group">
+                    <h5>Your Point: 10</h5>
+                    <div class="row">
+                      <div class="col-md-10">
+                        <input type="text" class="form-control" id="inputName" aria-describedby="name" placeholder="Enter Name">
+                      </div>
+                      <div class="col-md-2">
+                        <button type="btn btn-success" name="button">Submit</button>
+                      </div>
+                    </div>
+                    <small id="emailHelp" class="form-text text-muted">Thanks For Playing</small>
+                  </div>
+                  <button type="btn btn-secondary" name="button">Try Again ?</button>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
 
     <div id="app-game" class="name">
       <nyawa :nyawa="nyawa"></nyawa>
-      
+
       <!-- add game board -->
       <div id="board" :class="shake">
           <div id="game-contain">
@@ -201,7 +236,7 @@
     <!-- end app-game -->
       <!-- this button is called to restart the modal-onload card -->
       <!-- <a class='replay' href='#' id='js-replay'>Replay</a> -->
-    
+
     <div class="space"></div>
     <!-- footer section -->
     <footer>
@@ -210,7 +245,7 @@
         <!-- <a href="#" class="btn green">Green</a> -->
         <!-- <a href="#" class="btn blue">Sign in below</a> -->
       <!-- </div> -->
-      
+
       <div class="social-buttons">
         <!-- <a href="#" class="social-btn entypo-tumblr" target="_blank"><div class="sr">Tumblr - opens in new tab</div></a> -->
         <!-- <a href="#" class="social-btn entypo-twitter" target="_blank"><div class="sr">Twitter - opens in new tab</div></a> -->
@@ -229,7 +264,7 @@
 
     <script src="/js/faker.js"></script>
     <script src="/js/bootstrap-notify.min.js"></script>
-  
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script charset="utf-8" src="/js/axios-core.js"></script>
@@ -240,7 +275,7 @@
     <script src="/js/scriptGameover.js" charset="utf-8"></script>
 
     <script src="/js/scriptLeader.js" charset="utf-8"></script>
-   
+
     <script src="/js/vue-game-component.js" charset="utf-8"></script>
     <script src="/js/vue-game.js" charset="utf-8"></script>
 
