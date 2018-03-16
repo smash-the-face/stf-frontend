@@ -1,49 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>STF</title>
-     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  </head>
-  <body >
-    <div id="vue-app">     <!-- A grey horizontal navbar that becomes vertical on small screens -->
-         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="/index.html">STF</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>STF</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <div class="collapse navbar-collapse" id="navbarsExample03">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-          </ul>
+</head>
+
+<body>
+  <div id="vue-app">
+    <!-- A grey horizontal navbar that becomes vertical on small screens -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="/index.html">STF</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModalCenter">&#9813;</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Top Global Smashed Face 🤦</h5>
+          <div class="search">
+            <input type="text" name="Search" id="" class="search__text" v-model="searchText" placeholder="search">
+          </div>
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+            <!-- <span aria-hidden="true">&times;</span> -->
+          <!-- </button> -->
         </div>
-      </nav>
+        <div class="modal-body" id="leadPhoto">
+          <!-- Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Upload By</th>
+                <th scope="col" v-on:click="sort">Smash Count</th>
+                <th scope="col">Victim Face</th>
+              </tr>
+            </thead>
+            <tbody v-for="element in leadData">
+              <tr>
+                <th scope="row">{{leadData.indexOf(element)+1}}</th>
+                <td>{{element.uploaderName}}</td>
+                <td>{{element.totalSmash}}</td>
+                <td>{{element.photoUrl}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- End of Table -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
     </div>
+  </div>
 
+  <!-- jQuery library -->
+  <script src="/js/jquery.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/faker.js">
+  </script>
+  <script src="/js/bootstrap-notify.min.js">
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./js/axios-core.js"></script>
+  <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
+  </script>
+  <script src="./js/script.js"></script>
 
-    <!-- jQuery library -->
-    <script src="/js/jquery.js"></script>
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/faker.js">
-    </script>
-    <script src="/js/bootstrap-notify.min.js">
-    </script>
-    <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
-    </script>
+</body>
 
-  </body>
 </html>
