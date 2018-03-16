@@ -1,0 +1,17 @@
+#heart {
+    width: auto;
+    height:120px;
+    margin-right: 20px;
+}
+
+.lives {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media all and (max-width: 600px) {
+    #heart {
+        width: auto;
+        height: 80px;
+    }   
+}

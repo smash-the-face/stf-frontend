@@ -1,0 +1,15 @@
+body {
+    background: rgb(39, 247, 104);
+    z-index: 0;
+}
+.body-section {
+    background: url('../assets/images/50GG.gif') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1;
+}
+.space {
+    padding:2em;
+}
