@@ -1,7 +1,7 @@
 new Vue({
     el:"#userprofile",
     data: {
-      data_leader: [],
+      data_profile: [],
       data_search: [],
     },
     mounted:function(){
@@ -10,13 +10,13 @@ new Vue({
     methods: {
       addUser: function () {
         var app = this
-        request.get('/api/players-point', {
+        request.get('/api/getprofile', {
             headers: {token: localStorage.token
             }
         })
         .then(function (response) {
           response.data.data.reverse().forEach((data,i) => {
-            app.data_leader.push(data)
+            app.data_profile.push(data)
           })
         })
       },
