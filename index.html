@@ -49,30 +49,11 @@
               </div>
             </div>
             <div class="modal-body">
-              <table class="table" >
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Name</th>
-                    <th scope="col" v-on:click="changeOrder">Point</th>
-                  </tr>
-                </thead>
-                <tbody v-for="leader in data_leader" v-if="!data_search.length">
-                  <tr>
-                    <th scope="row">{{data_leader.indexOf(leader) + 1}}</th>
-                    <td >{{leader.name}}</td>
-                    <td>{{leader.point}}</td>
-                  </tr>
-                </tbody>
-                <tbody v-for="leader in data_search" v-if="data_search.length">
-                  <tr>
-                    <th scope="row">{{data_search.indexOf(leader) + 1}}</th>
-                    <td >{{leader.name}}</td>
-                    <td>{{leader.point}}</td>
-                  </tr>
-                </tbody>
-
-              </table>
+              <component-leader
+                :data_leader="data_leader"
+                :data_search="data_search"
+                v-on:toggle-leader="changeOrder">
+              </component-leader>
             </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,10 +75,10 @@
     </script>
     <script src="/js/bootstrap-notify.min.js">
     </script>
-    <script src="https://unpkg.com/vue@2.5.15/dist/vue.js">
-    </script>
+    <script src="https://unpkg.com/vue@2.5.15/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/js/axios-core.js"></script>
     <script src="/js/scriptLeader.js" charset="utf-8"></script>
+    <script src="/js/component-leaderboard.js" charset="utf-8"></script>
   </body>
 </html>
