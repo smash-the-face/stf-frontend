@@ -77,9 +77,6 @@ new Vue({
     tembakMonster: function(){
       this.monsterNyerang = false;
       this.point++;
-      console.log(this.point)
-      console.log(this.monsterNyerang,'status monster')
-      alert('Monster Ketembak');
     },
     clearMonster: function(){
       this.muncul =  {
@@ -112,12 +109,13 @@ new Vue({
           console.log('berhenti');
            app.clearMonster();
            app.shake = 'animated shake';
+            document.getElementById("btn-stop-music").click();
            clearInterval(gameStart);
          } else {
            app.cekKemunculanMonster()
          }
 
-       }, 1000);
+       }, 800);
     }
 
   }

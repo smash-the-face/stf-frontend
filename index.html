@@ -46,18 +46,14 @@
     <div class="body-section">
       <!-- modal usage: audioplay track for later use-->
       <!-- button onclick 'play' will play track; on end of game will pause and reset track -->
-      <div>
+      <div style="display:none">
         <p>the below is the bacground audio track during in-game play</p>
         <button onclick="playtrack()">play me</button>
-        <button onclick="stoptrack()">stop me</button>
+        <button onclick="stoptrack()" id="btn-stop-music">stop me</button>
         <audio id="track">
             <source src="./assets/track/107 - battle (vs wild pokemon).mp3" type="audio/mpeg">
         </audio>
       </div>
-
-
-
-
 
     <div id="leaderboard">
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

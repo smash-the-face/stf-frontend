@@ -5,16 +5,22 @@ Vue.component('face-to-smash', {
       :src="source" 
       height="auto"
       width="140px" 
-      class="animated slideInUp"
+      :class="animate"
       @click="smashFace"
       v-if="muncul">  </span>`,
    data: function(){
      return {
      }
    },
+  data : function(){
+    return {
+      animate: 'animated slideInUp',
+    }
+  },
    props: ['muncul','source'],
    methods: {
     smashFace: function(){
+      this.animate = 'animated bounceOut'
       this.$emit('smashing');
 
     }
